@@ -1,0 +1,23 @@
+.App {
+  margin: 1rem;
+}
+
+.category-list {
+  display: flex;
+  font-size: 1.7rem;
+}
+
+.category {
+  background: wheat;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  min-width: 250px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.category-selected {
+  background: yellowgreen;
+}

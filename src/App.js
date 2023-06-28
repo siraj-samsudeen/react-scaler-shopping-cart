@@ -1,7 +1,37 @@
+import { useState } from 'react';
 import './App.css';
 
-function App() {
-  return <div className="App">Learn React</div>;
+export default function App() {
+  const categories = [
+    'electronics',
+    'jewelery',
+    "men's clothing",
+    "women's clothing",
+  ];
+
+  return (
+    <div className="App">
+      <CategoryList categories={categories} />
+    </div>
+  );
 }
 
-export default App;
+function CategoryList({ categories }) {
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
+  return (
+    <div className="category-list">
+      {categories.map((category) => (
+        <div
+          className={
+            'category ' + (category === selectedCategory && 'category-selected')
+          }
+          key={category}
+          onClick={() => setSelectedCategory(category)}
+        >
+          {category}
+        </div>
+      ))}
+    </div>
+  );
+}
