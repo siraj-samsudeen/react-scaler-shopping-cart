@@ -5,11 +5,13 @@
 .category-list {
   display: flex;
   font-size: 1.7rem;
+  flex-wrap: wrap;
 }
 
 .category {
   background: wheat;
   margin-right: 0.5rem;
+  margin-top: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
