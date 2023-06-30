@@ -3,6 +3,9 @@ import './App.css';
 
 export default function App() {
   const [categories, setCategories] = useState([]);
+  // TODO first category is NOT highlighted on first render
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
   const products = [
     {
       id: 5,
@@ -28,17 +31,17 @@ export default function App() {
 
   return (
     <div className="App">
-      <CategoryList categories={categories} />
+      <CategoryList
+        categories={categories}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
       <ProductList products={products} />
     </div>
   );
 }
 
-function CategoryList({ categories }) {
-  // TODO first category is NOT highlighted on first render
-  // because setSelectedCategory is not yet executed
-  // I know why this is happening - what is the right way to handle this?
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+function CategoryList({ categories, selectedCategory, setSelectedCategory }) {
   console.log('CategoryList => ', categories);
   console.log('selected category ', selectedCategory);
 
