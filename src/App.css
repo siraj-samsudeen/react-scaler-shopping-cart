@@ -23,3 +23,26 @@
 .category-selected {
   background: yellowgreen;
 }
+
+.product-list {
+  margin: 10px;
+  display: flex;
+}
+
+.product {
+  border: 2px dashed gray;
+  margin: 10px;
+  padding: 10px;
+  max-width: 300px;
+  font-size: 1.3rem;
+}
+
+.product img {
+  width: 250px;
+  height: 250px;
+}
+
+.product-price {
+  font-weight: bold;
+  color:blue
+}

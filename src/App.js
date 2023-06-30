@@ -3,6 +3,20 @@ import './App.css';
 
 export default function App() {
   const [categories, setCategories] = useState([]);
+  const products = [
+    {
+      id: 5,
+      title: 'WD 2TB Elements Portable External Hard Drive - USB 3.0',
+      price: '12',
+      image: 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg',
+    },
+    {
+      id: 8,
+      title: 'SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s',
+      price: '23',
+      image: 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg',
+    },
+  ];
 
   useEffect(fetchCategories, []);
 
@@ -15,6 +29,7 @@ export default function App() {
   return (
     <div className="App">
       <CategoryList categories={categories} />
+      <ProductList products={products} />
     </div>
   );
 }
@@ -38,6 +53,20 @@ function CategoryList({ categories }) {
           onClick={() => setSelectedCategory(category)}
         >
           {category}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ProductList({ products }) {
+  return (
+    <div className="product-list">
+      {products.map((product) => (
+        <div className="product" key={product.id}>
+          <img src={product.image} alt={product.title} />
+          <div>{product.title}</div>
+          <span className="product-price">Rs. {product.price}</span>
         </div>
       ))}
     </div>
