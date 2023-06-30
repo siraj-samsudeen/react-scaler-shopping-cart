@@ -8,13 +8,26 @@ export default function App() {
 
   const [products, setProducts] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   useEffect(fetchCategories, []);
   useEffect(() => fetchProductsOf(selectedCategory), [selectedCategory]);
 
   function fetchCategories() {
+    setLoading(true);
+    setError(null);
     fetch('https://fakestoreapi.com/products/categories')
       .then((response) => response.json())
-      .then((data) => setCategories(data));
+      .then((data) => {
+        setLoading(false);
+        return setCategories(data);
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError('Error => ' + error.message);
+        console.error('Error => ', error.message);
+      });
   }
   function fetchProductsOf(category) {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
@@ -24,11 +37,17 @@ export default function App() {
 
   return (
     <div className="App">
-      <CategoryList
-        categories={categories}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-      />
+      {loading ? (
+        'Fetching categories...'
+      ) : error ? (
+        error.toString()
+      ) : (
+        <CategoryList
+          categories={categories}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+      )}
       <ProductList products={products} />
     </div>
   );
