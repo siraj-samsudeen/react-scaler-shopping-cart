@@ -6,27 +6,20 @@ export default function App() {
   // TODO first category is NOT highlighted on first render
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
-  const products = [
-    {
-      id: 5,
-      title: 'WD 2TB Elements Portable External Hard Drive - USB 3.0',
-      price: '12',
-      image: 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg',
-    },
-    {
-      id: 8,
-      title: 'SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s',
-      price: '23',
-      image: 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg',
-    },
-  ];
+  const [products, setProducts] = useState([]);
 
   useEffect(fetchCategories, []);
+  useEffect(() => fetchProductsOf(selectedCategory), [selectedCategory]);
 
   function fetchCategories() {
     fetch('https://fakestoreapi.com/products/categories')
       .then((response) => response.json())
       .then((data) => setCategories(data));
+  }
+  function fetchProductsOf(category) {
+    fetch(`https://fakestoreapi.com/products/category/${category}`)
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
   }
 
   return (
