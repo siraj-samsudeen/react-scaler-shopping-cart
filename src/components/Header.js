@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-export default function Header() {
+export default function Header({ selectedCategory, setSelectedCategory }) {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(fetchCategories, []);
   function fetchCategories() {
