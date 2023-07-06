@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+.header-items {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.header-item {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 10px;
+    border: 1px dashed whitesmoke;
+    border-radius: 10px;
+    background: wheat;
+    flex-basis: 300px;
+}
