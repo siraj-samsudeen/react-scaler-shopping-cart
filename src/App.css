@@ -18,4 +18,12 @@
     border-radius: 10px;
     background: wheat;
     flex-basis: 300px;
+    cursor: pointer;
+}
+
+.header-item-selected {
+    background: goldenrod;
+    color: white;
+    font-weight: bold;
+    border: none;
 }
