@@ -11,17 +11,27 @@ export default function Header({ selectedCategory, setSelectedCategory }) {
   return (
     <div className="header-items">
       {categories.map((category) => (
-        <div
-          className={
-            'header-item ' +
-            (category === selectedCategory && 'header-item-selected')
-          }
+        <Category
           key={category}
-          onClick={() => setSelectedCategory(category)}
-        >
-          {category}
-        </div>
+          category={category}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
       ))}
+    </div>
+  );
+}
+
+function Category({ category, selectedCategory, setSelectedCategory }) {
+  return (
+    <div
+      className={
+        'header-item ' +
+        (category === selectedCategory && 'header-item-selected')
+      }
+      onClick={() => setSelectedCategory(category)}
+    >
+      {category}
     </div>
   );
 }
