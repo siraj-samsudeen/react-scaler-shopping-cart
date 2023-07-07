@@ -12,3 +12,4 @@
 4. Implement loading and error states for the API calls
     4.1 for fetching categories
     4.2 for fetching products
+5. Create custom hook for fetching data from API

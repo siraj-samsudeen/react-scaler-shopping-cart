@@ -1,26 +1,7 @@
-import { useEffect, useState } from 'react';
+import useApi from '../hooks/useApi';
+const CATEGORY_URL = 'https://fakestoreapi.com/products/categories';
 export default function Header({ selectedCategory, setSelectedCategory }) {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(fetchCategories, []);
-  function fetchCategories() {
-    setLoading(true);
-    setError(null);
-    fetch('https://fakestoreapi.com/products/categories')
-      .then((res) => res.json())
-      .then((json) => {
-        setLoading(false);
-        console.log('fetched categories ->', json);
-        setCategories(json);
-      })
-      .catch((error) => {
-        setLoading(false);
-        setError(error);
-        console.log('error fetching categories ->', error);
-      });
-  }
+  const [loading, error, categories] = useApi(CATEGORY_URL);
   return !loading && !error ? (
     <div className="header-items">
       {categories.map((category) => (
