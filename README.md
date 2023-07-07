@@ -9,3 +9,6 @@
     3.2. Create ProductList Component which fetches the products for the category and displays them
     3.3. Extract Product Component from ProductList
     3.4. Extract Category Component from Header
+4. Implement loading and error states for the API calls
+    4.1 for fetching categories
+    4.2 for fetching products

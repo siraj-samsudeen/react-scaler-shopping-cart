@@ -57,3 +57,9 @@
 .product-title {
     font-size: 1.3rem;
 }
+
+.error {
+    color: red;
+    font-size: 1.2rem;
+    padding: 10px;
+}
