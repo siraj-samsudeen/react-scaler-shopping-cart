@@ -11,11 +11,7 @@ function App() {
     <div className="App">
       {/* JS trick  to avoid writing selectedCategory={selectedCategory}, etc */}
       <Header {...{ selectedCategory, setSelectedCategory }} />
-      {
-        // TODO - Ideally category should never be null, but for the first load it is null
-        // moving the check from ProductList to here to avoid the conditional hook error
-        selectedCategory && <ProductList {...{ selectedCategory }} />
-      }
+      <ProductList {...{ selectedCategory }} />
     </div>
   );
 }

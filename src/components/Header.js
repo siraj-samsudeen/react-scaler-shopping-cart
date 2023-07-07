@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import useApi from '../hooks/useApi';
 const CATEGORY_URL = 'https://fakestoreapi.com/products/categories';
 export default function Header({ selectedCategory, setSelectedCategory }) {
   const [loading, error, categories] = useApi(CATEGORY_URL);
+
+  // set the first category as selectedCategory when categories are fetched so that its products are fetched
+  useEffect(() => {
+    setSelectedCategory(categories[0]);
+  }, [categories]);
   return !loading && !error ? (
     <div className="header-items">
       {categories.map((category) => (
