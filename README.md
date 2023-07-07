@@ -7,3 +7,4 @@
 3. Display the Product List for the selected category
     3.1. Lift selectedCategory state up to parent Component to share it with ProductList
     3.2. Create ProductList Component which fetches the products for the category and displays them
+    3.3. Extract Product Component from ProductList

@@ -1,3 +1,4 @@
+import { Product } from './Product';
 import { useEffect, useState } from 'react';
 export default function ProductList({ selectedCategory }) {
   const [products, setProducts] = useState([]);
@@ -11,11 +12,7 @@ export default function ProductList({ selectedCategory }) {
   return (
     <div className="products">
       {products.map((product) => (
-        <div className="product" key={product.id}>
-          <img src={product.image} alt={product.title} />
-          <p class="product-title">{product.title}</p>
-          <p>Rs. {product.price}</p>
-        </div>
+        <Product {...product} key={product.id} />
       ))}
     </div>
   );
