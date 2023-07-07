@@ -13,3 +13,4 @@
     4.1 for fetching categories
     4.2 for fetching products
 5. Create custom hook for fetching data from API
+    5.1 Refactor ProductList component to use the hook useAPI

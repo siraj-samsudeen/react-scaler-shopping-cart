@@ -4,7 +4,9 @@ export default function useApi(url) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => fetchData(), []);
+  //   URL could change after initial page load
+  // e.g. when a user clicks on a category to fetch its products
+  useEffect(() => fetchData(), [url]);
   function fetchData() {
     setLoading(true);
     setError(null);
