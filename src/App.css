@@ -12,6 +12,11 @@
     gap: 2px;
 }
 
+/* React Router Link gets transformed into an anchor element */
+.header-items a {
+    text-decoration: none;
+    color: black;
+}
 .header-item {
     font-size: 1.5rem;
     text-transform: capitalize;

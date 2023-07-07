@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import useApi from '../hooks/useApi';
+import { Link } from 'react-router-dom';
+
 const CATEGORY_URL = 'https://fakestoreapi.com/products/categories';
 export default function Header({ selectedCategory, setSelectedCategory }) {
   const [loading, error, categories] = useApi(CATEGORY_URL);
@@ -31,14 +33,16 @@ export default function Header({ selectedCategory, setSelectedCategory }) {
 
 function Category({ category, selectedCategory, setSelectedCategory }) {
   return (
-    <div
-      className={
-        'header-item ' +
-        (category === selectedCategory && 'header-item-selected')
-      }
-      onClick={() => setSelectedCategory(category)}
-    >
-      {category}
-    </div>
+    <Link to={`categories/${category}`}>
+      <div
+        className={
+          'header-item ' +
+          (category === selectedCategory && 'header-item-selected')
+        }
+        onClick={() => setSelectedCategory(category)}
+      >
+        {category}
+      </div>
+    </Link>
   );
 }

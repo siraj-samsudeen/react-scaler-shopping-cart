@@ -15,3 +15,4 @@
 5. Create custom hook for fetching data from API
     5.1 Refactor ProductList component to use the hook useAPI
     5.2 Add logic to avoid race conditions while using useEffect to call APIs
+6. Create client-side Routing using react-router-dom for the categories
